@@ -1,11 +1,11 @@
-const Router = require('koa-router');
+import * as Router from 'koa-router';
 
 const router = new Router();
 
 router.get('/', (ctx, next) => {
     ctx.body = {
         status : "success",
-        message : "Default route"
+        message : "Default route in Typescript"
     }
 }).get('/hello', (ctx) => {
     ctx.body = {
@@ -14,4 +14,4 @@ router.get('/', (ctx, next) => {
     };
 });
 
-module.exports = router;
+export {router};

@@ -1,0 +1,25 @@
+{
+  "name": "nodoj",
+  "version": "1.0.0",
+  "description": "Node.js Rest API Example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marincek/nodoj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marincek/nodoj/issues"
+  },
+  "homepage": "https://github.com/Marincek/nodoj#readme",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0"
+  }
+}

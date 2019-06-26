@@ -14,6 +14,7 @@ export class AuthService {
         const dataStoredInToken: DataStoredInToken = {
             _id: user.id,
         };
+
         return {
             expiresIn,
             token: jwt.sign(dataStoredInToken, secret, {expiresIn}),

@@ -1,3 +1,4 @@
+'use strict';
 import * as Koa from 'koa';
 import * as winston from 'winston';
 
@@ -21,21 +22,24 @@ export function logger() {
         }
 
         const msg: string = `${ctx.method} ${ctx.originalUrl} ${ctx.status} ${ms}ms`;
-        
-        winston.createLogger({
-            level: 'info',
+        let logger =  winston.createLogger({
+          //  winstonInstance.configure({
+           // TODO: read from config file
             transports: [
                 //
                 // - Write all logs error (and below) to `error.log`.
-                new winston.transports.File({ filename: 'error.log', level: 'error' }),
+                new winston.transports.File({ filename: 'error.log', level: 'info' }),
                 //
                 // - Write to all logs with specified level to console.
-                new winston.transports.Console({ format: winston.format.combine(
-                    winston.format.colorize(),
-                    winston.format.simple()
+                new winston.transports.Console({ 
+                    format: winston.format.combine(
+                        winston.format.colorize(),
+                        winston.format.simple(),
+                        winston.format.timestamp()
                   ) })
             ]
-        }).log(logLevel, msg);
-
-    } 
+        });
+        
+        logger.log(logLevel, msg);
+    };  
 }
